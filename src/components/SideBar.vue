@@ -1,9 +1,9 @@
 <template>
   <aside class="sidebar">
     <div class="whats-new">
-      <h2>What's New</h2>
+      <h2>最新资讯</h2>
       <ul>
-        <li><a href="/news">新智能路口沙盘演示平台</a></li>
+        <li><a href="/news/0">协作边缘计算网络中基于算力网络图的任务调度系统Demo</a></li>
         <li><a href="#">Dolphins Dataset</a></li>
         <li><a href="#">Niulab成员参加第一届6G通信感知一体化学术研讨会</a></li>
         <li><a href="#">Niulab成员参加第六届牛顿论坛</a></li>
@@ -12,7 +12,7 @@
       </ul>
     </div>
     <div class="links">
-      <h2>Links</h2>
+      <h2>相关链接</h2>
       <ul>
         <li><a href="/people">Dept. E.E. Tsinghua Univ.</a></li>
         <li><a href="#">School of Information Science</a></li>

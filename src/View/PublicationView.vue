@@ -1,37 +1,51 @@
 <template>
   <div class="publication-content">
     <h1>Publications</h1>
+
     <!-- 搜索栏 -->
     <div class="search-bar">
-      <input
-        type="text"
-        placeholder="Search..."
-        v-model="searchQuery"
-        class="search-input"
-      />
-      <select v-model="selectedCategory" class="filter-select">
-        <option value="all">All Categories</option>
-        <option value="journal">Journal</option>
-        <option value="conference">Conference</option>
-      </select>
-      <select v-model="selectedGroup" class="filter-select">
-        <option value="all">All Groups</option>
-        <option value="research">Research</option>
-        <option value="review">Review</option>
-      </select>
-      <input
-        type="date"
-        v-model="fromDate"
-        class="date-input"
-        placeholder="From"
-      />
-      <input type="date" v-model="toDate" class="date-input" placeholder="To" />
-      <button @click="filterPublications" class="search-button">Search</button>
+      <!-- 所有输入框和选择框都在这一行 -->
+      <div class="filter-row">
+        <!-- 搜索框 -->
+        <input
+          type="text"
+          placeholder="Search..."
+          v-model="searchQuery"
+          class="search-input"
+        />
+
+        <!-- 下拉选择框 -->
+        <select v-model="selectedCategory" class="filter-select">
+          <option value="all">All Categories</option>
+          <option value="Journal">Journal</option>
+          <option value="Conference">Conference</option>
+          <option value="Review">Review</option>
+          <option value="Book">Book</option>
+        </select>
+
+        <select v-model="selectedGroup" class="filter-select">
+          <option value="all">All Groups</option>
+          <option value="Computing_Power_Network">Computing_Power_Network</option>
+          <option value="Star_earth_fusion">Star_earth_fusion</option>
+          <option value="Federated_learning">Federated_learning</option>
+          <option value="Large_scale_model">Large_scale_model</option>
+          <option value="Digital_Twin">Digital_Twin</option>
+        </select>
+
+        <!-- 年份选择框 -->
+        <select v-model="selectedYear" class="filter-select">
+          <option value="all">All Years</option>
+          <option v-for="year in uniqueYears" :key="year" :value="year">
+            {{ year }}
+          </option>
+        </select>
+      </div>
     </div>
 
+    <!-- 展示筛选后的出版物 -->
     <div
       class="publication-item"
-      v-for="(pub, index) in publications"
+      v-for="(pub, index) in filteredPublications"
       :key="index"
     >
       <h2>
@@ -52,141 +66,705 @@ export default {
   name: "PublicationView",
   data() {
     return {
+      searchQuery: "", // 搜索查询
+      selectedCategory: "all", // 选择的分类
+      selectedGroup: "all", // 选择的组别
+      selectedYear: "all", // 选择的年份
       publications: [
+        // 数据来源
+        // Star_earth_fusion
         {
           title:
-            "Resource Allocation for Channel Estimation in Reconfigurable Intelligent Surface-Aided Multi-Cell Networks",
-          authors: "Y. Xu and S. Zhou",
-          journal:
-            "Journal of Communications and Information Networks, 2024, 9(1):64-79",
-          date: "November 6, 2024",
+            "Traffic-Aware Resource Management of Beam Hopping in Satellite-Enabled Internet of Things",
+          authors: "Author 1, Author 2",
+          journal: "Journal Name, Year",
+          date: "Date",
+          year: 2024,
           tag: "Journal",
-          link: "#", // 将 # 替换为实际链接
+          group: "Star_earth_fusion",
+          link: "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:L7CI7m0gUJcC",
         },
         {
           title:
-            "Learning-assisted User Scheduling and Beamforming for mmWave Vehicular Networks",
-          authors: "B. Xie, S. Chen, S. Zhou, Z. Niu, B. Galkin, I. Dusparic",
-          journal:
-            "IEEE Trans. Veh. Technol., VOL. 73, NO. 8, 11262-11275, AUGUST 2024",
-          date: "November 6, 2024",
+            "Joint beam scheduling and power optimization for beam hopping LEO satellite systems",
+          authors: "Author 1, Author 2",
+          journal: "Journal Name, Year",
+          date: "Date",
+          year: 2024,
           tag: "Journal",
-          link: "#", // 将 # 替换为实际链接
+          group: "Star_earth_fusion",
+          link: "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:ipzZ9siozwsC",
+        },
+        {
+          title: "巨型星座路由技术综述",
+          authors: "Author 1, Author 2",
+          journal: "Journal Name, Year",
+          date: "Date",
+          year: 2024,
+          tag: "Review",
+          group: "Star_earth_fusion",
+          link: "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:BwyfMAYsbu0C",
         },
         {
           title:
-            "Sensing and Communication Co-Design for Status Update in Multiaccess Wireless Networks",
-          authors:
-            "Fei Peng, Zhiyuan Jiang, Sheng Zhou, Zhisheng Niu, Shunqing Zhang",
-          journal: "IEEE Trans. Mobile Computing, 22(3): 1779-1792, 2023",
-          date: "September 6, 2023",
+            "MaCro: Mega-Constellations Routing Systems with Multi-Edge Cross-Domain Features",
+          authors: "Author 1, Author 2",
+          journal: "Journal Name, Year",
+          date: "Date",
+          year: 2024,
           tag: "Journal",
-          link: "#", // 将 # 替换为实际链接
+          group: "Star_earth_fusion",
+          link: "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:epqYDVWIO7EC",
         },
         {
           title:
-            "A Predictive Frame Transmission Scheme for Cloud Gaming in Mobile Edge Cloudlet Systems",
-          authors: "Tianchu Zhao, Sheng Zhou, Yuxuan Sun, Zhisheng Niu",
-          journal: "IEEE Trans. Mobile Computing, 22(7):3774-3789, 2023",
-          date: "August 20, 2023",
+            "An Intelligent Area-segmentation Enabled Hybrid Routing Method in Mega-constellations",
+          authors: "Author 1, Author 2",
+          journal: "Journal Name, Year",
+          date: "Date",
+          year: 2024,
           tag: "Journal",
-          link: "#", // 将 # 替换为实际链接
+          group: "Star_earth_fusion",
+          link: "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:AvfA0Oy_GE0C",
         },
         {
           title:
-            "Multiuser Co-inference with Batch Processing Capable Edge Server",
-          authors: "W. Shi, S. Zhou, Z. Niu, M. Jiang, L. Geng",
-          journal: "IEEE Trans. Wireless Commun., 2023, 22(1):286-300",
-          date: "April 6, 2023",
+            "SatEdge: Platform of Edge Cloud at Satellite and Scheduling Mechanism for Microservice Modules",
+          authors: "Author 1, Author 2",
+          journal: "Journal Name, Year",
+          date: "Date",
+          year: 2024,
           tag: "Journal",
-          link: "#", // 将 # 替换为实际链接
+          group: "Star_earth_fusion",
+          link: "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:nrtMV_XWKgEC",
         },
+        {
+          title:
+            "Down-Link Slot Assignment in Beam Hopping Communication System Based on Genetic",
+          authors: "Author 1, Author 2",
+          journal: "Journal Name, Year",
+          date: "Date",
+          year: 2024,
+          tag: "Conference",
+          group: "Star_earth_fusion",
+          link: "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:ML0RJ9NH7IQC",
+        },
+        {
+          title:
+            "A Muti-beam Placement Optimization Scheme in LEO Beam Hopping Satellite Systems",
+          authors: "Author 1, Author 2",
+          journal: "Journal Name, Year",
+          date: "Date",
+          year: 2024,
+          tag: "Journal",
+          group: "Star_earth_fusion",
+          link: "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:Z5m8FVwuT1cC",
+        },
+        {
+          title:
+            "Channel and Power Allocation for Uplink Multibeam LEO Satellite System with IoT Services",
+          authors: "Author 1, Author 2",
+          journal: "Journal Name, Year",
+          date: "Date",
+          year: 2024,
+          tag: "Journal",
+          group: "Star_earth_fusion",
+          link: "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:uc_IGeMz5qoC",
+        },
+        {
+          title:
+            "LEO Mega-Constellations Routing Algorithm Based on Area Segmentation",
+          authors: "Author 1, Author 2",
+          journal: "Journal Name, Year",
+          date: "Date",
+          year: 2024,
+          tag: "Journal",
+          group: "Star_earth_fusion",
+          link: "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:HE397vMXCloC",
+        },
+        {
+          title: "卫星地面融合信息网络（北京邮电大学出版社）",
+          authors: "Author 1, Author 2",
+          journal: "Beijing University of Posts and Telecommunications Press",
+          date: "Date",
+          year: 2024,
+          tag: "Book",
+          group: "Star_earth_fusion",
+          link: "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:zLWjf1WUPmwC",
+        },
+        {
+          title:
+            "Analysis and optimization on partition-based caching and delivery in satellite-terrestrial edge computing networks",
+          authors: "Author 1, Author 2",
+          journal: "Journal Name, Year",
+          date: "Date",
+          year: 2024,
+          tag: "Journal",
+          group: "Star_earth_fusion",
+          link: "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:XiVPGOgt02cC",
+        },
+        {
+          title:
+            "ComEdge: Cloud-Native Platform for Integrated Computing and Communication in Satellite–Terrestrial Network",
+          authors: "Author 1, Author 2",
+          journal: "Journal Name, Year",
+          date: "Date",
+          year: 2024,
+          tag: "Journal",
+          group: "Star_earth_fusion",
+          link: "(https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:VLnqNzywnoUC",
+        },
+        {
+          title:
+            "低轨卫星通信网络路由技术综述",
+          authors: "Author 1, Author 2",
+          journal: "Journal Name, Year",
+          date: "Date",
+          year: 2024,
+          tag: "Journal",
+          group: "Star_earth_fusion",
+          link: "(https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:WA5NYHcadZ8C",
+        },
+        {
+          title:
+            "Microservice Scheduling for Satellite-Terrestrial Hybrid Network with Edge Computing",
+          authors: "Author 1, Author 2",
+          journal: "Journal Name, Year",
+          date: "Date",
+          year: 2024,
+          tag: "Journal",
+          group: "Star_earth_fusion",
+          link: "(https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:2KloaMYe4IUC",
+        },
+        {
+          "title": "空天地一体化网络基于服务功能链的资源分配",
+          "authors": "Author 1, Author 2",
+          "journal": "Journal Name, Year",
+          "date": "Date",
+          "year": 2024,
+          "tag": "Journal",
+          "group": "Star_earth_fusion",
+          "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:fEOibwPWpKIC"
+        },
+        {
+          "title": "低轨卫星智能多接入边缘计算网络: 需求, 架构, 机遇与挑战",
+          "authors": "Author 1, Author 2",
+          "journal": "Journal Name, Year",
+          "date": "Date",
+          "year": 2024,
+          "tag": "Journal",
+          "group": "Star_earth_fusion",
+          "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:dQ2og3OwTAUC"
+        },
+        {
+          "title": "Double-edge intelligent integrated satellite terrestrial networks",
+          "authors": "Author 1, Author 2",
+          "journal": "Journal Name, Year",
+          "date": "Date",
+          "year": 2024,
+          "tag": "Journal",
+          "group": "Star_earth_fusion",
+          "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:R3hNpaxXUhUC"
+        },
+        {
+          "title": "Collaborative transmission in hybrid satellite-terrestrial networks: Design and implementation",
+          "authors": "Author 1, Author 2",
+          "journal": "Journal Name, Year",
+          "date": "Date",
+          "year": 2024,
+          "tag": "Journal",
+          "group": "Star_earth_fusion",
+          "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:4fKUyHm3Qg0C"
+        },
+        {
+          "title": "Convergence of satellite and terrestrial networks: A comprehensive survey",
+          "authors": "Author 1, Author 2",
+          "journal": "Journal Name, Year",
+          "date": "Date",
+          "year": 2024,
+          "tag": "Journal",
+          "group": "Star_earth_fusion",
+          "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:8k81kl-MbHgC"
+        },
+        {
+          "title": "Reinforcement learning based congestion control in satellite Internet of things",
+          "authors": "Author 1, Author 2",
+          "journal": "Journal Name, Year",
+          "date": "Date",
+          "year": 2024,
+          "tag": "Journal",
+          "group": "Star_earth_fusion",
+          "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:L8Ckcad2t8MC"
+        },
+        {
+          "title": "Performance analysis of task offloading in double-edge satellite-terrestrial networks",
+          "authors": "Author 1, Author 2",
+          "journal": "Journal Name, Year",
+          "date": "Date",
+          "year": 2024,
+          "tag": "Journal",
+          "group": "Star_earth_fusion",
+          "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:j3f4tGmQtD8C"
+        },
+        // 数字孪生组 (Digital_Twin)
+        {
+          "title": "Adaptive Multi-Layer Deployment for A Digital Twin Empowered Satellite-Terrestrial Integrated Network",
+          "authors": "Author 1, Author 2",
+          "journal": "Journal Name, Year",
+          "date": "Date",
+          "year": 2024,
+          "tag": "Journal",
+          "group": "Digital_Twin",
+          "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:g3aElNc5_aQC"
+        },
+        {
+          "title": "Layered Model Aggregation based Federated Learning in Mobile Edge Networks",
+          "authors": "Author 1, Author 2",
+          "journal": "Journal Name, Year",
+          "date": "Date",
+          "year": 2024,
+          "tag": "Journal",
+          "group": "Digital_Twin",
+          "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:ns9cj8rnVeAC"
+        },
+        // 联邦学习组 (Federated_learning)
+        {
+          "title": "Communication efficiency optimization of federated learning for computing and network convergence of 6G networks",
+          "authors": "Author 1, Author 2",
+          "journal": "Journal Name, Year",
+          "date": "Date",
+          "year": 2024,
+          "tag": "Journal",
+          "group": "Federated_learning",
+          "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:0KyAp5RtaNEC"
+        },
+        {
+          "title": "FedACT: an adaptive chained training approach for federated learning in computing power networks",
+          "authors": "Author 1, Author 2",
+          "journal": "Journal Name, Year",
+          "date": "Date",
+          "year": 2024,
+          "tag": "Journal",
+          "group": "Federated_learning",
+          "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:URolC5Kub84C"
+        },
+        {
+          "title": "Multi-task Federated Learning based on Client Scheduling in Mobile Edge Computing",
+          "authors": "Author 1, Author 2",
+          "journal": "Journal Name, Year",
+          "date": "Date",
+          "year": 2024,
+          "tag": "Journal",
+          "group": "Federated_learning",
+          "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:olpn-zPbct0C"
+        },
+        // 大模型组 (Large_scale_model)
+        {
+          "title": "CourseGPT-zh: an Educational Large Language Model Based on Knowledge Distillation Incorporating Prompt Optimization",
+          "authors": "Author 1, Author 2",
+          "journal": "Journal Name, Year",
+          "date": "Date",
+          "year": 2024,
+          "tag": "Journal",
+          "group": "Large_scale_model",
+          "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:p__nRnzSRKYC"
+        },
+        {
+    "title": "Delay-Minimization and Load-Balancing Task Offloading in Mobile Edge Computing",
+    "authors": "Author 1, Author 2",
+    "journal": "Journal Name, Year",
+    "date": "Date",
+    "year": 2024,
+    "tag": "Journal",
+    "group": "Computing_Power_Network",
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:TIZ-Mc8IlK0C"
+  },
+  {
+    "title": "Joint D2D and Base Station Collaboration with Hierarchical Task Offloading in MEC Networks",
+    "authors": "Author 1, Author 2",
+    "journal": "Journal Name, Year",
+    "date": "Date",
+    "year": 2024,
+    "tag": "Journal",
+    "group": "Computing_Power_Network",
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:tYavs44e6CUC"
+  },
+  {
+    "title": "Priority and Stackelberg Game-Based Incentive Task Allocation for Device-Assisted MEC Networks",
+    "authors": "Author 1, Author 2",
+    "journal": "Journal Name, Year",
+    "date": "Date",
+    "year": 2024,
+    "tag": "Journal",
+    "group": "Computing_Power_Network",
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:hMsQuOkrut0C"
+  },
+  {
+    "title": "端侧算力网络: 架构与关键技术",
+    "authors": "Author 1, Author 2",
+    "journal": "Journal Name, Year",
+    "date": "Date",
+    "year": 2024,
+    "tag": "Journal",
+    "group": "Computing_Power_Network",
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:vbGhcppDl1QC"
+  },
+  {
+    "title": "Platform Profit Maximization for Space-Air-Ground Integrated Computing Power Network Supplied by Green Energy",
+    "authors": "Author 1, Author 2",
+    "journal": "Journal Name, Year",
+    "date": "Date",
+    "year": 2024,
+    "tag": "Journal",
+    "group": "Computing_Power_Network",
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:TIZ-Mc8IlK0C"
+  },
+  {
+    "title": "Community and Priority-Based Microservice Placement in Collaborative Vehicular Edge Computing Networks",
+    "authors": "Author 1, Author 2",
+    "journal": "Journal Name, Year",
+    "date": "Date",
+    "year": 2024,
+    "tag": "Journal",
+    "group": "Computing_Power_Network",
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:EYYDruWGBe4C"
+  },
+  {
+    "title": "Computing power network: A survey",
+    "authors": "Author 1, Author 2",
+    "journal": "Journal Name, Year",
+    "date": "Date",
+    "year": 2024,
+    "tag": "Journal",
+    "group": "Computing_Power_Network",
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:wbdj-CoPYUoC"
+  },
+  {
+    "title": "Computation Rate Maximization for Wireless Powered Edge Computing With Multi-User Cooperation",
+    "authors": "Author 1, Author 2",
+    "journal": "Journal Name, Year",
+    "date": "Date",
+    "year": 2024,
+    "tag": "Journal",
+    "group": "Computing_Power_Network",
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:BUYA1_V_uYcC"
+  },
+  {
+    "title": "Joint Task Partitioning and Parallel Scheduling in Device-Assisted Mobile Edge Networks",
+    "authors": "Author 1, Author 2",
+    "journal": "Journal Name, Year",
+    "date": "Date",
+    "year": 2024,
+    "tag": "Journal",
+    "group": "Computing_Power_Network",
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:EkHepimYqZsC"
+  },
+  {
+    "title": "Task Offloading with Multi-cluster Collaboration for Computing and Network Convergence",
+    "authors": "Author 1, Author 2",
+    "journal": "Journal Name, Year",
+    "date": "Date",
+    "year": 2024,
+    "tag": "Journal",
+    "group": "Computing_Power_Network",
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:hWpxVfXrSUsC"
+  },
+  {
+    "title": "Multipath Information Announcement Algorithm for Computing Power Network based on Self-Organizing Map Network",
+    "authors": "Author 1, Author 2",
+    "journal": "Journal Name, Year",
+    "date": "Date",
+    "year": 2024,
+    "tag": "Journal",
+    "group": "Computing_Power_Network",
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:t7zJ5fGR-2UC"
+  },
+  {
+    "title": "The Architecture of Computing Power Network Towards Federated Learning: Paradigms and Perspectives",
+    "authors": "Author 1, Author 2",
+    "journal": "Journal Name, Year",
+    "date": "Date",
+    "year": 2024,
+    "tag": "Journal",
+    "group": "Computing_Power_Network",
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:uWiczbcajpAC"
+  },
+  {
+    "title": "A2C Learning for Tasks Segmentation with Cooperative Computing in Edge Computing Networks",
+    "authors": "Author 1, Author 2",
+    "journal": "Journal Name, Year",
+    "date": "Date",
+    "year": 2024,
+    "tag": "Journal",
+    "group": "Computing_Power_Network",
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:5ugPr518TE4C"
+  },
+  {
+    "title": "Joint Offloading and Resource Allocation with Partial Information for Multi-user Edge Computing",
+    "authors": "Author 1, Author 2",
+    "journal": "Journal Name, Year",
+    "date": "Date",
+    "year": 2024,
+    "tag": "Journal",
+    "group": "Computing_Power_Network",
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:J-pR_7NvFogC"
+  },
+  {
+    "title": "Computing power network: A testbed and applications with edge intelligence",
+    "authors": "Author 1, Author 2",
+    "journal": "Journal Name, Year",
+    "date": "Date",
+    "year": 2024,
+    "tag": "Journal",
+    "group": "Computing_Power_Network",
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:wbdj-CoPYUoC"
+  },
+  {
+    "title": "Multipath Information Announcement Algorithm for Computing Power Network based on Self-Organizing Map Network",
+    "authors": "Author 1, Author 2",
+    "journal": "Journal Name, Year",
+    "date": "Date",
+    "year": 2024,
+    "tag": "Journal",
+    "group": "Computing_Power_Network",
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:t7zJ5fGR-2UC"
+  },
+  {
+    "title": "The Architecture of Computing Power Network Towards Federated Learning: Paradigms and Perspectives",
+    "authors": "Author 1, Author 2",
+    "journal": "Journal Name, Year",
+    "date": "Date",
+    "year": 2024,
+    "tag": "Journal",
+    "group": "Computing_Power_Network",
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:uWiczbcajpAC"
+  },
+  {
+    "title": "A2C Learning for Tasks Segmentation with Cooperative Computing in Edge Computing Networks",
+    "authors": "Author 1, Author 2",
+    "journal": "Journal Name, Year",
+    "date": "Date",
+    "year": 2024,
+    "tag": "Journal",
+    "group": "Computing_Power_Network",
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:5ugPr518TE4C"
+  },
+  {
+    "title": "Joint Offloading and Resource Allocation with Partial Information for Multi-user Edge Computing",
+    "authors": "Author 1, Author 2",
+    "journal": "Journal Name, Year",
+    "date": "Date",
+    "year": 2024,
+    "tag": "Journal",
+    "group": "Computing_Power_Network",
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:J-pR_7NvFogC"
+  },
+  {
+    "title": "Computing power network: A testbed and applications with edge intelligence",
+    "authors": "Author 1, Author 2",
+    "journal": "Journal Name, Year",
+    "date": "Date",
+    "year": 2024,
+    "tag": "Journal",
+    "group": "Computing_Power_Network",
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:Oh2d4PZ1IFwC"
+  },
+  {
+    "title": "Mobility and Traffic Prediction-Based Resource Allocation With Edge Intelligence in Wireless Network",
+    "authors": "Author 1, Author 2",
+    "journal": "Journal Name, Year",
+    "date": "Date",
+    "year": 2024,
+    "tag": "Journal",
+    "group": "Computing_Power_Network",
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:u_35RYKgDlwC"
+  },
+  {
+    "title": "Energy-Efficient Computation Offloading for Mobile Edge Networks: A Graph Theory Approach",
+    "authors": "Author 1, Author 2",
+    "journal": "Journal Name, Year",
+    "date": "Date",
+    "year": 2024,
+    "tag": "Journal",
+    "group": "Computing_Power_Network",
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:OU6Ihb5iCvQC"
+  },
+  {
+    "title": "Social-aware proactive content caching and sharing in multi-access edge networks",
+    "authors": "Author 1, Author 2",
+    "journal": "Journal Name, Year",
+    "date": "Date",
+    "year": 2024,
+    "tag": "Journal",
+    "group": "Computing_Power_Network",
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:tOudhMTPpwUC"
+  },
+  {
+    "title": "Intelligent Universal Acceleration Framework and Verification for Edge Cloud Applications",
+    "authors": "Author 1, Author 2",
+    "journal": "Journal Name, Year",
+    "date": "Date",
+    "year": 2024,
+    "tag": "Journal",
+    "group": "Computing_Power_Network",
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:tzM49s52ZIMC"
+  },
+  {
+    "title": "Multi-UAV Deployment for MEC Enhanced IoT Networks",
+    "authors": "Author 1, Author 2",
+    "journal": "Journal Name, Year",
+    "date": "Date",
+    "year": 2024,
+    "tag": "Journal",
+    "group": "Computing_Power_Network",
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:3gGvS2X1-V8C"
+  },
+  {
+    "title": "Edge-assisted adaptive video streaming with deep learning in mobile edge networks",
+    "authors": "Author 1, Author 2",
+    "journal": "Journal Name, Year",
+    "date": "Date",
+    "year": 2024,
+    "tag": "Journal",
+    "group": "Computing_Power_Network",
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:70eg2SAEIzsC"
+  },
+  {
+    "title": "Energy-efficient collaborative task offloading in D2D-assisted mobile edge computing networks",
+    "authors": "Author 1, Author 2",
+    "journal": "Journal Name, Year",
+    "date": "Date",
+    "year": 2024,
+    "tag": "Journal",
+    "group": "Computing_Power_Network",
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:hC7cP41nSMkC"
+  },
+  {
+    "title": "Context-aware caching with social behavior in MEC-enabled wireless cellular networks",
+    "authors": "Author 1, Author 2",
+    "journal": "Journal Name, Year",
+    "date": "Date",
+    "year": 2024,
+    "tag": "Journal",
+    "group": "Computing_Power_Network",
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:r0BpntZqJG4C"
+  },
+  {
+    "title": "Joint resource allocation and user association for heterogeneous services in multi-access edge computing networks",
+    "authors": "Author 1, Author 2",
+    "journal": "Journal Name, Year",
+    "date": "Date",
+    "year": 2024,
+    "tag": "Journal",
+    "group": "Computing_Power_Network",
+    "link": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=uN0i4yEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=uN0i4yEAAAAJ:ZHo1McVdvXMC"
+  }
+
       ],
     };
+  },
+
+  computed: {
+    // 提取唯一的年份
+    uniqueYears() {
+      const years = this.publications.map((pub) => pub.year);
+      return [...new Set(years)]; // 去重
+    },
+    filteredPublications() {
+      return this.publications.filter((pub) => {
+        const matchesSearch = pub.title
+          .toLowerCase()
+          .includes(this.searchQuery.toLowerCase());
+        const matchesCategory =
+          this.selectedCategory === "all" ||
+          pub.tag.toLowerCase() === this.selectedCategory.toLowerCase();
+
+        // 修正：直接比较 selectedGroup 和 pub.group
+        const matchesGroup =
+          this.selectedGroup === "all" || pub.group === this.selectedGroup;
+
+        const matchesYear =
+          this.selectedYear === "all" ||
+          pub.year.toString() === this.selectedYear;
+
+        return matchesSearch && matchesCategory && matchesGroup && matchesYear;
+      });
+    },
   },
 };
 </script>
 
 <style scoped>
-.search-bar {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-  align-items: center;
-}
-
-.search-input {
-  padding: 5px;
-  flex: 2;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.filter-select,
-.date-input {
-  padding: 5px;
-  flex: 1;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.search-button {
-  padding: 5px 10px;
-  background-color: #03157de2;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.search-button:hover {
-  background-color: #3a2161;
-}
+/* 样式根据需要进行调整 */
 .publication-content {
   padding: 20px;
 }
 
+.search-bar {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.search-row {
+  margin-bottom: 10px;
+}
+
+.filter-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+.search-button {
+  padding: 10px 15px;
+  font-size: 1rem;
+  background-color: #140a66;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filter-select-container,
+.filter-date-container {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-select,
+.date-input {
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-input {
+  padding: 8px;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-button:hover {
+  background-color: #0056b3;
+}
+
 .publication-item {
-  margin-bottom: 30px;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .publication-item h2 {
   font-size: 1.2rem;
-  margin-bottom: 5px;
 }
 
-.publication-item h2 a {
-  color: #03157de2; /* 紫色 */
-  text-decoration: none;
-}
-
-.publication-item h2 a:hover {
-  text-decoration: underline;
-}
-
-.authors {
+.publication-item .meta {
   font-size: 0.9rem;
-  color: #555;
-}
-
-.journal {
-  font-size: 0.9rem;
-  margin-bottom: 10px;
-}
-
-.meta {
-  font-size: 0.85rem;
   color: #777;
-}
-
-.comment-link {
-  color: #03157de2;
-  text-decoration: none;
-}
-
-.comment-link:hover {
-  text-decoration: underline;
 }
 </style>

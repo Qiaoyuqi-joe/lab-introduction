@@ -3,7 +3,9 @@
     <h1>Latest News</h1>
 
     <div class="news-item" v-for="(news, index) in newsList" :key="index">
-      <h2>{{ news.title }}</h2>
+      <router-link :to="{ name: 'NewsDetail', params: { id: index } }">
+        <h2>{{ news.title }}</h2>
+      </router-link>
       <p class="news-meta">Posted on {{ news.date }} by {{ news.author }}</p>
       <p>{{ news.description }}</p>
       <p v-if="news.details">
@@ -24,9 +26,9 @@ export default {
     return {
       newsList: [
         {
-          title: "智能路口沙盘演示平台",
-          date: "December 9, 2022",
-          author: "niulab",
+          title: "协作边缘计算网络中基于算力网络图的任务调度系统Demo",
+          date: "December 9, 2024",
+          author: "zxlab",
           description: "",
           categories: ["Notifications", "Visitings"],
         },
@@ -91,7 +93,7 @@ export default {
 
 .comment-link {
   margin-left: 10px;
-  color: #03157de2; /* 紫色 */
+  color: #140a66; /* 紫色 */
   text-decoration: none;
 }
 

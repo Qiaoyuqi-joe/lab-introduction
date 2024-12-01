@@ -1,31 +1,27 @@
 <template>
   <div class="main-content">
-    <h1>Welcome</h1>
-    <p>
-      The rapid development of wireless communication technologies has changed
-      people’s lives in many ways. However, to further enhance the network
-      capacity and operation efficiency, the future wireless networks, e.g., 5G
-      networks, still face a lot of technical challenges, which leave many open
-      problems for the researchers.
+    <h1>欢迎！</h1>
+    <p style="text-indent: 2em;">
+      <strong>    无线信号处理与网络（WSPN）实验室</strong>是泛网无线通信教育部重点实验室的重要组成, 面向无线网络能力提升和移动互联网业务承载优化的实际需求，以提升无线网络效能为科学目标。
     </p>
-    <p>
-      The Network Integration for Ubiquitous Linkage And Broadband lab (NIULAB)
-      is dedicated to the research in a broad field of wireless communications
-      and networks, including network traffic control and performance analysis,
-      resource allocation and cross-layer design, cooperative communications,
-      green communications and networks, and future network infrastructure
-      design.
+    <p style="text-indent: 2em;">
+      <strong>
+      主要研究方向：算力网络与移动边缘网络、星地融合信息网络、社区计算与大数据等
+    </strong>
     </p>
-    <p>
-      <strong
-        >For the students who are interested in joining the lab, please refer to
-        <a href="#">Q&A</a> for more information.</strong
-      >
-    </p>
+   
     <div class="lab-photo">
       <img src="../assets/images/GroupPhoto.jpg" alt="Lab Group Photo" />
     </div>
-    <h2>Contact Info</h2>
+
+    <p>
+      <strong
+        >如有更多问题请点击
+        <a href="#">Q&A</a> 获得更多咨询！</strong
+      >
+    </p>
+
+    <h2>联系我们</h2>
     <p>FIT Building 3-326~3-329 & Rohm Building 8-205</p>
     <p>Tsinghua University, Beijing, 100084, China</p>
     <p>Secretary: Xu Ping</p>
@@ -61,7 +57,7 @@ export default {
 }
 
 .main-content a {
-  color: #03157de2; /* 紫色链接 */
+  color: #140a66; /* 紫色链接 */
   text-decoration: none;
 }
 

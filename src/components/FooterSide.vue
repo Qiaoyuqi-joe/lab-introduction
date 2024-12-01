@@ -18,7 +18,7 @@ export default {
 .footer {
   margin-top: 40px;
   padding-top: 10px;
-  border-top: 2px solid #03157de2; /* 添加上方的分割线 */
+  border-top: 2px solid #140a66; /* 添加上方的分割线 */
   text-align: left;
 }
 
@@ -28,7 +28,7 @@ export default {
 }
 
 .footer a {
-  color: #03157de2;
+  color: #140a66;
   text-decoration: none;
 }
 
