@@ -170,6 +170,17 @@
           resume: "研二在读，现研究方向为边缘计算。",
           research: "边缘计算",
 
+        },     
+        yuzitong: {
+          name: "于子童",
+          phone: "13943702002",
+          photo: require('@/assets/images/yuzitong.png'),
+          email: "1192631472@qq.com",
+          else: "北京邮电大学研究生",
+          education: "硕士",
+          resume: "2024级硕士研究生。",
+          research: "边缘智能大模型",
+
         },      
           // 你可以继续为每个人定义数据
         },
