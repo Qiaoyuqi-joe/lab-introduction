@@ -28,15 +28,20 @@
   
   <style scoped>
   #layout {
+    background-color: #cdcaca; 
     font-family: 'Arial', sans-serif;
   }
   
   .container {
     display: flex;
+    background-color:white;
+    margin-right:10px;
+    
   }
   
   .main-content {
     flex: 1;
+    margin-right:10px;
     padding: 20px; /* 为主要内容部分增加一些填充 */
   }
   </style>

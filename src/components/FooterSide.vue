@@ -16,6 +16,7 @@ export default {
 
 <style scoped>
 .footer {
+  background-color:white;
   margin-top: 40px;
   padding-top: 10px;
   border-top: 2px solid #140a66; /* 添加上方的分割线 */

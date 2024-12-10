@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../View/HomeView.vue';
 import ResearchView from '../View/ResearchView.vue';
+import ResearchDetail from '../View/ResearchDetail.vue';
 import PeopleView from '../View/PeopleView.vue';
 import PeopleDetailView from '../View/PeopleDetailView.vue';  // 这个页面显示个人简历
 import PublicationView from '../View/PublicationView.vue';
@@ -9,6 +10,7 @@ import NewsDetailView from '../View/NewsDetailView.vue';
 const routes = [
   { path: '/', name: 'Home', component: HomeView },
   { path: '/research', name: 'Research', component: ResearchView },
+  { path: '/research/:id',name: 'ResearchDetail', component:ResearchDetail,props: true},
   { path: '/people', name: 'People', component: PeopleView },
   { path: '/person/:id',name: 'PersonDetail', component: PeopleDetailView,props: true},
   { path: '/publication', name: 'Publication', component: PublicationView },

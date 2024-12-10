@@ -1,5 +1,6 @@
 <template>
   <aside class="sidebar">
+    <div  class="sidebar-view">
     <div class="whats-new">
       <h2>最新资讯</h2>
       <ul>
@@ -19,22 +20,37 @@
         <li><a href="#">Dolphins Dataset</a></li>
       </ul>
     </div>
+  </div>
     
   </aside>
 </template>
 
 <style scoped>
 .sidebar {
-  width: 20%;
-  padding: 20px;
-  background-color: #f5f5f5;
+  width: 17.5%;
+  padding-left: 10px;
+  padding-right: 15px;
+  background-color: #cdcaca;
+}
+a{
+  text-decoration:none;
+
 }
 
+.sidebar-view {
+  display: flex;
+  width:100%;
+  height:100%;
+  background-color: #ffffff;
+  flex-direction: column;
+}
 .sidebar h2 {
   font-size: 1.2rem;
   color: #333;
 }
-
+.whats-new,.links {
+  margin:10px;
+}
 .whats-new ul,
 .links ul {
   list-style-type: disc; /* 使用黑点作为列表项符号 */

@@ -2,7 +2,7 @@
   <div class="main-content">
     <h1>欢迎！</h1>
     <p style="text-indent: 2em;">
-      <strong>    无线信号处理与网络（WSPN）实验室</strong>是泛网无线通信教育部重点实验室的重要组成, 面向无线网络能力提升和移动互联网业务承载优化的实际需求，以提升无线网络效能为科学目标。
+      <strong>   北邮WSPN实验室是泛网无线通信教育部重点实验室的重要组成，本研究组主要面向无线网络能力提升和移动互联网业务承载优化的重大需求，以提升无线网络效能为科学目标，主要研究方向：算力网络与移动边缘网络、星地融合信息网络、多模态信息融合处理等。</strong>
     </p>
     <p style="text-indent: 2em;">
       <strong>
@@ -22,13 +22,11 @@
     </p>
 
     <h2>联系我们</h2>
-    <p>FIT Building 3-326~3-329 & Rohm Building 8-205</p>
-    <p>Tsinghua University, Beijing, 100084, China</p>
-    <p>Secretary: Xu Ping</p>
-    <p>Phone No.: +86-10-62773634</p>
+    <p>实验室位置：北京邮电大学科研楼630，鸿通楼201</p>
+   
     <p>
-      Email:
-      <a href="mailto:xuping811@tsinghua.edu.cn">xuping811@tsinghua.edu.cn</a>
+      联系邮箱:
+      <a href="hszhang@bupt.edu.cn">xuping811@tsinghua.edu.cn</a>
     </p>
   </div>
 </template>

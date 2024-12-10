@@ -1,0 +1,11 @@
+{
+    "src": [
+      "src/components/**/*.{vue}",  
+      "src/View/**/*.{vue}"
+    ],
+    "dist": "locales",              
+    "locales": ["en", "zh"],         
+    "keySeparator": ".",            
+    "namespaceSeparator": ":",      
+    "createOldCatalogs": false      
+  }

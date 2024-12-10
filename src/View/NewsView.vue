@@ -69,6 +69,11 @@ export default {
   padding: 20px;
 }
 
+a{
+  text-decoration:none;
+
+}
+
 .news-item {
   margin-bottom: 30px;
   border-bottom: 1px solid #ddd;

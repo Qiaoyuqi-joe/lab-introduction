@@ -1,84 +1,121 @@
 <template>
   <header class="navbar">
-    <div class="navbar-top">
-      <router-link to="/">
-        <img src="../assets/images/Lablogo1.png" alt="Lab Logo" class="logo" />
-      </router-link>
-      
-      <h1 class="title">无线信号处理与网络（WSPN）实验室</h1>
-      <img src="../assets/images/BUPTlogo.png" alt="BUPT Logo" class="university-logo" />
+    <div class="navbar-row">
+      <div class="logo-container">
+        <router-link to="/">
+          <img src="../assets/images/Lablogo2.png" alt="Lab Logo" class="logo" />
+        </router-link>
+      </div>
+      <div class="navbar-top">
+        <h1 class="title">无线信号处理与网络（WSPN）实验室</h1>
+        <img src="../assets/images/BUPTlogo.png" alt="BUPT Logo" class="university-logo" />
+      </div>
     </div>
     <nav class="navbar-bottom">
-      <ul>
-        <li><router-link to="/">主页</router-link></li>
-        <li><router-link to="/research">研究内容</router-link></li>
-        <li><router-link to="/people">人员构成</router-link></li>
-        <li><router-link to="/publication">期刊发表</router-link></li>
-        <li><router-link to="/news">新闻资讯</router-link></li>
-      </ul>
       <div class="search-container">
         <input type="text" placeholder="Search" class="search-bar" />
         <button class="search-button">Search</button>
       </div>
+      <ul>
+        <li><router-link to="/">主页</router-link></li>
+        <li><router-link to="/research">研究内容</router-link></li>
+        <li><router-link to="/people">人员构成</router-link></li>
+        <li><router-link to="/publication">论文发表</router-link></li>
+        <li><router-link to="/news">新闻资讯</router-link></li>
+      </ul>
+     
     </nav>
   </header>
 </template>
 
 <style scoped>
+/* 整体导航栏样式 */
 .navbar {
-  background-color: #140a66; /* 紫色背景 */
   color: white;
   text-align: center;
+  margin: 0; /* 清除整体页面的默认 margin */
+  padding: 0; /* 清除默认 padding */
+}
+
+.navbar-row {
+  display: flex;
+  height: 120px;
+  align-items: center;
+  background-color: #cdcaca;
+  justify-content: space-between;
+  padding: 0;
 }
 
 .navbar-top {
   display: flex;
+  background-color: #140a66;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
+  height:100%;
+  width: 85%;
+  margin-left: auto;
+  padding:0;
+  margin-right:10px;
+}
+
+.logo-container {
+  width:20%;
+  display: flex;
+  justify-content: flex-start; /* 确保logo靠左对齐 */
+  height:100%;
+  padding:0;
 }
 
 .logo {
-  height: 130px;
-  margin-left: 20px;
-  margin-top: 10px;
+  height: 100%; /* 控制lablogo的大小 */
+  width:100%;
+  object-fit:cover;
+  margin:0px;
+  margin-left:10px;
+  padding:0px;
 }
 
 .university-logo {
   height: 75px;
-  margin-right: 10px;
+  margin-left: 10px; /* 与标题之间的距离 */
+  margin-right:15px;
 }
 
 .title {
   flex: 1;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: bold;
   text-align: center;
-  font-family: "Microsoft YaHei", STXihei, sans-serif;
+  margin:0;
+  font-family:  "Heiti SC";
 }
-
-
 .navbar-bottom {
   display: flex;
+  height:50px;
   align-items: center;
-  justify-content: center;
-  background-color: #f3f3f3; /* 灰色背景 */
-  padding: 5px 10px; /* 增加顶部和底部的间距，使导航栏与标题平齐 */
+  justify-content: left;
+  background-color: #cdcaca; /* 灰色背景 */
+  padding: 0; /* 增加顶部和底部的间距，使导航栏与标题平齐 */
+  padding-top: 0px;
+  padding-bottom: 10px;
 }
 
 .navbar-bottom ul {
+  width:95%;
   list-style: none;
   display: flex;
-  gap: 160px;
-
-  padding: 0;
+  gap:18.3px;
+  margin:0;
+  margin-right:10px;
+  padding:0;
   color: #140a66; /* 紫色字体 */
 }
 
 .navbar-bottom li {
   display: inline;
   font-size:1.2rem;
-  margin: 0 10px;
+  margin: 0;
+  padding:0;
   font-weight: bold; /* 加粗字体 */
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* 添加阴影效果 */
 }
@@ -86,6 +123,11 @@
 .navbar-bottom a {
   color: #140a66; /* 紫色字体 */
   text-decoration: none;
+  background-color: white; /* 添加白色背景 */
+  border-radius: 5px; /* 圆角效果 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+  padding: 10px 75px; /* 给链接增加内边距 */
+
 }
 
 .navbar-bottom a:hover {
@@ -94,16 +136,19 @@
 
 .search-container {
   display: flex;
+  width:20%;
   align-items: center;
-  margin-left: auto;
-  margin-right: 10px;
+  margin:0;
+  padding:0;
+  margin-left:10px;
+  margin-right: 15px;
 }
 
 .search-bar {
-  padding: 5px;
-  margin-right: 10px;
+  padding: 11px;
+  margin-right: 7px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 5px;
 }
 
 .search-button {
@@ -118,4 +163,4 @@
 .search-button:hover {
   background-color: #140a66;
 }
-</style>
+</style> 
