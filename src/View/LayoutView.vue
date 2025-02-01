@@ -35,14 +35,14 @@
   .container {
     display: flex;
     background-color:white;
-    margin-right:10px;
+    margin-right: 0.625rem;
     
   }
   
   .main-content {
     flex: 1;
-    margin-right:10px;
-    padding: 20px; /* 为主要内容部分增加一些填充 */
+    margin-right: 0.625rem; /* 10px -> 0.625rem */
+    padding: 1.25rem; /* 20px -> 1.25rem */
   }
   </style>
   

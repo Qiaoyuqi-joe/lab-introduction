@@ -35,17 +35,16 @@ export default {
   name: "PeopleView",
 };
 </script>
-
 <style scoped>
 .people-content {
-  padding: 20px;
+  padding: 1.25rem;
 }
 
 .people-content h1,
 .people-content h2 {
   font-size: 1.5rem;
   font-weight: bold;
-  margin-top: 20px;
+  margin-top: 1.25rem;
 }
 
 .people-content ul {
@@ -54,12 +53,12 @@ export default {
 }
 
 .people-content li {
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
   font-size: 1rem;
 }
 
 .people-content a {
-  color: #140a66; /* 紫色字体 */
+  color: #140a66;
   text-decoration: none;
 }
 

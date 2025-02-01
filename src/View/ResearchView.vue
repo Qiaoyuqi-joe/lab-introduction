@@ -85,17 +85,16 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 
 .divider {
-  height: 1px;
+  height: 0.0625rem; /* 1px -> 0.0625rem */
   background-color: #ccc;
-  margin: 20px 0;
+  margin: 1.25rem 0; /* 20px -> 1.25rem */
 }
 
 .research-content {
-  padding: 10px;
+  padding: 0.625rem; /* 10px -> 0.625rem */
 }
 
 .short-description {
@@ -103,62 +102,60 @@ export default {
   margin-bottom: 0px;
 }
 
-
 .el-button {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background-color: #570303ee; /* 更显眼的按钮颜色 */
-  color: white; /* 白色字体 */
-  font-size: 1.2rem; /* 增大字体 */
-  padding: 10px 20px; /* 调整按钮大小 */
-  border-radius: 8px; /* 圆角按钮 */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 阴影效果 */
-  transition: background-color 0.3s ease; /* 平滑的背景色变化 */
+  bottom: 0.625rem; /* 10px -> 0.625rem */
+  right: 0.625rem; /* 10px -> 0.625rem */
+  background-color: #570303ee;
+  color: white;
+  font-size: 1.2rem;
+  padding: 0.625rem 1.25rem; /* 10px 20px -> 0.625rem 1.25rem */
+  border-radius: 0.5rem; /* 8px -> 0.5rem */
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.2); /* 4px 10px -> 0.25rem 0.625rem */
+  transition: background-color 0.3s ease;
 }
 
 .el-button:hover {
-  background-color: #8a0b0b; /* 鼠标悬停时颜色变化 */
+  background-color: #8a0b0b;
 }
 
 .research-content h1 {
   font-size: 2rem;
   font-weight: bold;
-  margin-bottom: 1px;
-  /* background: linear-gradient(to right, white, #570303ee, white); */
+  margin-bottom: 0.0625rem; /* 1px -> 0.0625rem */
   color: rgb(0, 0, 0);
-  padding: 20px 20px;
-  border-radius: 10px;
-  margin-top:10px;
+  padding: 1.25rem 1.25rem; /* 20px 20px -> 1.25rem 1.25rem */
+  border-radius: 0.625rem; /* 10px -> 0.625rem */
+  margin-top: 0.625rem; /* 10px -> 0.625rem */
   text-align: center;
 }
 
 .research-content p {
   font-size: 1.4rem;
   line-height: 1.5;
-  margin-bottom: 15px;
+  margin-bottom: 0.9375rem; /* 15px -> 0.9375rem */
 }
 
 .image-section {
   text-align: center;
-  margin: 20px 0;
+  margin: 1.25rem 0; /* 20px -> 1.25rem */
 }
 
 .image-section img {
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 0.5rem; /* 8px -> 0.5rem */
 }
 
 .video-section {
   text-align: center;
-  margin: 20px 0;
+  margin: 1.25rem 0; /* 20px -> 1.25rem */
 }
 
 .video-section video {
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem; /* 8px -> 0.5rem */
+  box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.1); /* 10px 30px -> 0.625rem 1.875rem */
 }
 </style>

@@ -193,10 +193,9 @@
     },
   };
   </script>
-  
   <style scoped>
   .person-detail-content {
-    margin: 20px;
+    margin: 1.25rem;
   }
   
   .person-header {
@@ -205,23 +204,23 @@
   }
   
   .person-photo {
-    width: 150px;
-    margin-right: 20px;
+    width: 9.375rem;
+    margin-right: 1.25rem;
   }
   
   .person-info h1 {
     margin: 0;
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: bold;
   }
   
   .person-info p {
-    margin: 5px 0;
+    margin: 0.3125rem 0;
   }
   
   .person-body h2 {
-    font-size: 20px;
-    margin-top: 30px;
+    font-size: 1.25rem;
+    margin-top: 1.875rem;
     font-weight: bold;
   }
   
@@ -231,7 +230,7 @@
   }
   
   .person-body li {
-    margin: 5px 0;
+    margin: 0.3125rem 0;
   }
   </style>
   

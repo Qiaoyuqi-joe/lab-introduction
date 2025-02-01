@@ -63,41 +63,39 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 .news-content {
-  padding: 20px;
+  padding: 1.25rem; /* 20px -> 1.25rem */
 }
 
-a{
-  text-decoration:none;
-
+a {
+  text-decoration: none;
 }
 
 .news-item {
-  margin-bottom: 30px;
+  margin-bottom: 1.875rem; /* 30px -> 1.875rem */
   border-bottom: 1px solid #ddd;
-  padding-bottom: 20px;
+  padding-bottom: 1.25rem; /* 20px -> 1.25rem */
 }
 
 .news-item h2 {
-  font-size: 1.5rem;
-  margin-bottom: 5px;
+  font-size: 1.5rem; /* 字号使用 rem 单位 */
+  margin-bottom: 0.3125rem; /* 5px -> 0.3125rem */
 }
 
 .news-meta {
-  font-size: 0.9rem;
+  font-size: 0.9rem; /* 字号使用 rem 单位 */
   color: #555;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem; /* 10px -> 0.625rem */
 }
 
 .news-footer {
-  font-size: 0.85rem;
+  font-size: 0.85rem; /* 字号使用 rem 单位 */
   color: #777;
 }
 
 .comment-link {
-  margin-left: 10px;
+  margin-left: 0.625rem; /* 10px -> 0.625rem */
   color: #140a66; /* 紫色 */
   text-decoration: none;
 }

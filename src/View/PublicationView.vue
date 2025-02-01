@@ -743,11 +743,9 @@ export default {
   },
 };
 </script>
-
 <style scoped>
-/* 样式根据需要进行调整 */
 .publication-content {
-  padding: 20px;
+  padding: 1.25rem;
 }
 
 a {
@@ -758,52 +756,52 @@ a {
   display: flex;
   width: 100%;
   flex-direction: column;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 .search-row {
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
 
 .filter-row {
   display: flex;
   justify-content: space-between;
-  gap: 20px;
-  margin-bottom: 10px;
+  gap: 1.25rem;
+  margin-bottom: 0.625rem;
 }
 
 .search-button {
-  padding: 10px 15px;
+  padding: 0.625rem 0.9375rem;
   font-size: 1rem;
   background-color: #140a66;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   cursor: pointer;
 }
 
 .filter-select-container,
 .filter-date-container {
   display: flex;
-  gap: 5px;
+  gap: 0.3125rem;
 }
 
 .filter-select,
 .date-input {
-  padding: 10px;
-  width:250px;
+  padding: 0.625rem;
+  width: 15.625rem;
   font-size: 1rem;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
 }
 
 .search-input {
-  padding: 8px;
+  padding: 0.5rem;
   font-size: 1rem;
   width: 100%;
-  max-width: 250px;
+  max-width: 15.625rem;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
 }
 
 .search-button:hover {
@@ -811,7 +809,7 @@ a {
 }
 
 .publication-item {
-  margin-bottom: 15px;
+  margin-bottom: 0.9375rem;
 }
 
 .publication-item h2 {

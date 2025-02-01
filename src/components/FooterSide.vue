@@ -3,7 +3,7 @@
     <hr />
     <p>
       Contact website administrator
-      <a href="mailto:Vichare@vichare.net">Vichare@vichare.net</a>
+      <a href="mailto:hszhang@bupt.edu.cn">hszhang@bupt.edu.cn</a>
     </p>
   </footer>
 </template>
@@ -15,16 +15,17 @@ export default {
 </script>
 
 <style scoped>
+/* 设置根字体大小为基准，通常 1rem = 16px */
 .footer {
-  background-color:white;
-  margin-top: 40px;
-  padding-top: 10px;
-  border-top: 2px solid #140a66; /* 添加上方的分割线 */
+  background-color: white;
+  margin-top: 2.5rem; /* 40px -> 2.5rem */
+  padding-top: 0.625rem; /* 10px -> 0.625rem */
+  border-top: 0.125rem solid #140a66; /* 2px -> 0.125rem */
   text-align: left;
 }
 
 .footer p {
-  font-size: 0.9rem;
+  font-size: 0.9rem; /* 字体大小不变，因为已经是 rem 单位 */
   color: #666;
 }
 
@@ -38,8 +39,8 @@ export default {
 }
 
 .footer .wordpress-icon {
-  width: 20px;
-  vertical-align: middle; /* 图标和文字垂直对齐 */
-  margin-right: 5px;
+  width: 1.25rem; /* 20px -> 1.25rem */
+  vertical-align: middle;
+  margin-right: 0.3125rem; /* 5px -> 0.3125rem */
 }
 </style>
