@@ -104,8 +104,8 @@
   width: 95%;
   list-style: none;
   display: flex;
-  gap: 1.14375rem; /* 18.3px -> 1.14375rem */
-  margin: 0;
+  gap: 2.04375rem; /* 18.3px -> 1.14375rem */
+  margin-left: 0.4rem;
   margin-right: 0.625rem; /* 10px -> 0.625rem */
   padding: 0;
   color: #140a66;
@@ -160,4 +160,86 @@
   border-radius: 0.25rem;
 }
 
+
+/* 媒体查询 - 小屏幕调整 */
+@media (max-width: 600px) {
+  .search-container {
+    display: none; /* 隐藏搜索栏 */
+  }
+  .navbar-row {
+  display: flex;
+  height: 8rem; /* 120px -> 7.5rem */
+  align-items: center;
+  background-color: #cdcaca;
+  justify-content: space-between;
+  padding: 0;
+}
+  .logo-container {
+  width: 21%;
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  height: 100%;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+.logo {
+  height: 60%;
+  width: 90%;
+  object-fit: cover;
+  margin: 0;
+  margin-left: 0.625rem; /* 10px -> 0.625rem */
+  padding: 0;
+}
+
+.navbar-bottom ul {
+  width: 95%;
+  list-style: none;
+  display: flex;
+  gap: 0.8375rem; /* 18.3px -> 1.14375rem */
+  margin: 0;
+  margin-left: 3rem; /* 10px -> 0.625rem */
+  padding: 0;
+  color: #140a66;
+}
+
+.navbar-bottom li {
+  display: inline;
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  text-shadow: 0.0625rem 0.0625rem 0.125rem rgba(0, 0, 0, 0.2); /* 1px -> 0.0625rem, 2px -> 0.125rem */
+}
+
+.navbar-bottom a {
+  color: #140a66;
+  text-decoration: none;
+  background-color: white;
+  border-radius: 0.3125rem; /* 5px -> 0.3125rem */
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1); /* 2px -> 0.125rem, 4px -> 0.25rem */
+  padding: 0.35rem 1.6875rem; /* 10px -> 0.625rem, 75px -> 4.6875rem */
+}
+
+.navbar-top {
+  display: flex;
+  background-color: #140a66;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 78%;
+  margin-left: auto;
+  padding: 0;
+  margin-right: 0.625rem; /* 10px -> 0.625rem */
+}
+  .navbar-top .title {
+    font-size: 1.5rem; /* 调整标题字体大小 */
+  }
+
+  .university-logo {
+    height: 3.125rem; /* 调整大学logo大小 */
+  }
+
+}
 </style>

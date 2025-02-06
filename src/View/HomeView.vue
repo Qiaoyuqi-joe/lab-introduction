@@ -43,13 +43,13 @@ export default {
 }
 
 .main-content h1 {
-  font-size: 2rem; /* 字号不变，因为已经是 rem 单位 */
+  font-size: 2.5rem; /* 字号不变，因为已经是 rem 单位 */
   font-weight: bold;
   margin-bottom: 0.9375rem; /* 15px -> 0.9375rem */
 }
 
 .main-content p {
-  font-size: 1rem; /* 字号使用 rem 单位 */
+  font-size: 1.3rem; /* 字号使用 rem 单位 */
   line-height: 1.5;
   margin-bottom: 0.9375rem; /* 15px -> 0.9375rem */
 }
@@ -75,7 +75,7 @@ export default {
 }
 
 .main-content h2 {
-  font-size: 1.5rem; /* 字号使用 rem 单位 */
+  font-size: 1.7rem; /* 字号使用 rem 单位 */
   font-weight: bold;
   margin-top: 1.875rem; /* 30px -> 1.875rem */
   margin-bottom: 0.625rem; /* 10px -> 0.625rem */

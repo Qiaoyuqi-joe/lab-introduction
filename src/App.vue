@@ -23,8 +23,15 @@ export default {
     setRem() {
       const html = document.documentElement;
       const width = html.clientWidth; // 获取窗口宽度
-      const baseSize = width / 100;  // 基于窗口宽度调整字体大小（例如，1rem = 1/20窗口宽度）
-      html.style.fontSize = `${baseSize}px`;  // 设置根字体大小
+      
+  let baseSize = width / 100;  // 默认1rem = 1/100窗口宽度
+
+// 当窗口宽度小于等于600px时，增加根字体大小
+if (width <= 600) {
+  baseSize = width / 50;  // 在小屏幕设备上，调整基础字体大小
+}
+
+html.style.fontSize = `${baseSize}px`;  // 设置根字体大小
     }
   }
 };
