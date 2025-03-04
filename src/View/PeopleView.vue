@@ -21,6 +21,7 @@
       <li><router-link :to="{ name: 'PersonDetail', params: { id: 'sunboquan' } }">孙博泉 (Sun, Boquan) 入学年份-2024</router-link></li>
       <li><router-link :to="{ name: 'PersonDetail', params: { id: 'zhangheling' } }">张赫灵 (Zhang, Heling) 入学年份-2024</router-link></li>
       <li><router-link :to="{ name: 'PersonDetail', params: { id: 'yuzitong' } }">于子童 (Yu, Zitong) 入学年份-2024</router-link></li>
+      <li><router-link :to="{ name: 'PersonDetail', params: { id: 'qiaoyuqi' } }">乔煜琪 (Qiao, Yuqi) 入学年份-2025</router-link></li>
     </ul>
 
     <h2>毕业学生-博士生</h2>

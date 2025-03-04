@@ -11,6 +11,8 @@
           <p v-if="person.email"><strong>邮箱:</strong> {{ person.email }}</p>
           <p v-if="person.else"><strong> {{ person.else }} </strong></p>
           <p v-if="person.education"><strong>学历:</strong> {{ person.education }}</p>
+          <!-- 添加相关链接，只有当 person.link 存在时显示 -->
+          <p v-if="person.link"><strong>相关链接:</strong> <a :href="person.link" target="_blank">{{ person.link }}</a></p>
         </div>
       </div>
   
@@ -106,13 +108,14 @@
           name: "李泱",
         phone: "17331409621",
         email: "lybupt2018@gmail.com",
+        link:"http://liyangbupt.com/",
         photo: require('@/assets/images/liyang.png'), 
         else: "北京邮电大学直博研究生",
         education: "博士及以上",
         resume: "李泱，河北人。2018年毕业于河北衡水第一中学，同年考入北京邮电大学，现保送为王文博老师的直博研究生，由王文博教授和张兴教授联合培养。",
         research: "移动边缘计算，终端辅助边缘网络，多维资源管控，边缘协作",
         educationBackground: "2018年毕业于河北衡水第一中学，考入北京邮电大学",
-
+        
         },
 
         chengzetao: {
@@ -180,6 +183,18 @@
           education: "硕士",
           resume: "2024级硕士研究生。",
           research: "边缘智能大模型",
+
+        },      
+        qiaoyuqi: {
+          name: "乔煜琪",
+          phone: "18135477131",
+          photo: require('@/assets/images/qiaoyuqi.jpg'),
+          email: "18135477131@163.com",
+          else: "北京邮电大学本科生",
+          education: "本科",
+          resume: "荣获2024年“挑战杯”全国主赛道金奖、“互联网+”北京市一等奖、北京邮电大学校一等奖学金、优秀团干部等荣誉。",
+          educationBackground: "2021年9月-2025年6月 北京邮电大学 本科  2024年进入WSPN实验室学习",
+          research: "图注意力模型",
 
         },      
           // 你可以继续为每个人定义数据

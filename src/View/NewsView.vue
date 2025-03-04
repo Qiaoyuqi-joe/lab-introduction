@@ -29,35 +29,18 @@ export default {
           title: "协作边缘计算网络中基于算力网络图的任务调度系统Demo",
           date: "December 9, 2024",
           author: "zxlab",
-          description: "",
+          description: "为了实现协作边缘计算网络中高效的任务调度，提出了基于算力网络图的任务调度方案",
           categories: ["Notifications", "Visitings"],
         },
         {
-          title: "Dolphins Dataset",
-          date: "June 7, 2022",
-          author: "niulab",
+          title: "实验室成员参加2024GLOBECOM会议并进行口头汇报",
+          date: "December 8, 2024",
+          author: "zxlab",
           description:
-            "DOLPHINS, Dataset for cOLlaborative Perception enabled Harmonious and INterconnected Self-driving...",
+            "北京邮电大学泛网无线教育部重点实验室的李泱博士前往南非开普敦参加2024年全球通信会议",
           categories: ["Notifications", "Visitings"],
         },
-        {
-          title: "Niulab成员参加第一届6G通信感知一体化学术研讨会",
-          date: "May 5, 2021",
-          author: "niulab",
-          description: "",
-          details: {
-            time: "2021.04.15",
-            location: "成都",
-          },
-          categories: ["Notifications", "Visitings"],
-        },
-        {
-          title: "Niulab成员参加第六届牛顿论坛",
-          date: "December 26, 2020",
-          author: "niulab",
-          description: "时间: 2020.12.25-26 地点: 清华大学罗姆电子工程馆...",
-          categories: ["Notifications", "Visitings"],
-        },
+       
       ],
     };
   },

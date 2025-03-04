@@ -7,6 +7,7 @@ import PeopleDetailView from '../View/PeopleDetailView.vue';  // 这个页面显
 import PublicationView from '../View/PublicationView.vue';
 import NewsView from '../View/NewsView.vue';
 import NewsDetailView from '../View/NewsDetailView.vue';
+import ProgramView from '../View/ProgramView.vue';
 const routes = [
   { path: '/', name: 'Home', component: HomeView },
   { path: '/research', name: 'Research', component: ResearchView },
@@ -15,7 +16,8 @@ const routes = [
   { path: '/person/:id',name: 'PersonDetail', component: PeopleDetailView,props: true},
   { path: '/publication', name: 'Publication', component: PublicationView },
   { path: '/news', name: 'News', component: NewsView },
-  { path: '/news/:id', name: 'NewsDetail', component: NewsDetailView, props: true }  // 动态路由
+  { path: '/news/:id', name: 'NewsDetail', component: NewsDetailView, props: true },  // 动态路由
+  { path: '/program', name: 'Program', component: ProgramView },
 
 ];
 

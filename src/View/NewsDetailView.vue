@@ -3,7 +3,7 @@
     <h1>{{ news.title }}</h1>
     <p class="news-meta">Posted on {{ news.date }} by {{ news.author }}</p>
     <h3>简介：</h3>
-    <p>{{ news.description }}</p>
+    <p v-html="news.description"></p>
     <p v-if="news.details">
       时间: {{ news.details.time }} 地点: {{ news.details.location }}
     </p>
@@ -46,25 +46,15 @@ export default {
           video: require('@/assets/video/测试视频.mp4'),
         },
         {
-          title: "Dolphins Dataset",
-          date: "June 7, 2022",
-          author: "niulab",
+          title: "实验室成员参加2024GLOBECOM会议并进行口头汇报",
+          date: "December 8, 2024",
+          author: "zxlab",
           description:
-            "DOLPHINS, Dataset for cOLlaborative Perception enabled Harmonious and INterconnected Self-driving...",
+            "<p>2024年12月8日至12月12日，北京邮电大学泛网无线教育部重点实验室的李泱博士前往南非开普敦参加2024年全球通信会议(IEEE Global Communications Conference (GLOBECOM))。IEEE GLOBECOM 是 IEEE 通信学会的两个旗舰会议之一，致力于推动通信几乎每个方面的创新。每年，3000 多名科研人员及其管理者提交提案，以在年度会议上举行的项目会议。经过广泛的同行评审，最佳提案被选中纳入会议议程，包括技术论文、教程、研讨会和行业会议，旨在推动持续重塑世界的技术、系统和基础设施，并为所有用户提供前所未有的高速、无缝和经济的全球电信服务。</p> <p> 北京时间12月10日10:30，李泱博士口头汇报了题目为“Priority and Stackelberg Game-Based Incentive Task Allocation for Device-Assisted MEC Networks”的相关工作。移动边缘计算（MEC）是一种前景广阔的计算范式，可为用户的各种应用提供近距离即时计算服务，它已成为物联网（IoT）的重要组成部分。然而，随着计算密集型服务的不断涌现和物联网设备数量的激增，MEC 服务器面临着资源限制。因此，文章探索了设备辅助边缘计算的任务卸载框架，它允许 MEC 服务器将某些任务分配给辅助物联网设备（AD）进行处理。然而，任务物联网设备(TD)、MEC服务器和ADs之间存在复杂的合作与竞争关系，在缺乏激励机制的情况下，TDs将没有动力卸载任务数据、ADs也将没有动力协助MEC服务器处理任务。因此，针对上述问题，研究了终端辅助边缘计算框架下激励驱动的任务分配方案，研究的目标是通过设计激励驱动的任务分配策略，提高 MEC 服务器的效用，并且保障 TDs 和 ADs 的利益，实现三赢局面。</p> <p> 在充分展示自己的成果之余，李泱博士还参加了多个研讨会与论坛，听取了大会主旨报告，包括中国移动研究院首席科学家Chih-Lin I教授所做的“新时代通信范式的转变”报告，纽约大学Theodore S. Rappaport教授所做的“通信系统能耗的潮汐效应：如何增强信息通信技术行业德能量效率？”报告和俄亥俄州立大学Aylin Yener教授所做的“基于目的的连接：下一代无线通信革命”报告等； 参会期间与多位本领域小同行就共同感兴趣的研究方向进行了交流。</p>",
           categories: ["Notifications", "Visitings"],
+          image: require('@/assets/images/南非开会.jpg'), 
         },
-        {
-          title: "Niulab成员参加第一届6G通信感知一体化学术研讨会",
-          date: "May 5, 2021",
-          author: "niulab",
-          description: "关于6G通信感知一体化学术研讨会的描述...",
-          details: {
-            time: "2021.04.15",
-            location: "成都",
-          },
-          categories: ["Notifications", "Visitings"],
-        },
-        // 更多新闻项...
+       
       ],
       news: {} // 当前新闻详情
     };

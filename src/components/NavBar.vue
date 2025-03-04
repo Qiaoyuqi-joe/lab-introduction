@@ -22,6 +22,7 @@
         <li><router-link to="/people">人员构成</router-link></li>
         <li><router-link to="/publication">论文发表</router-link></li>
         <li><router-link to="/news">新闻资讯</router-link></li>
+        <li><router-link to="/program">科研项目</router-link></li>
       </ul>
     </nav>
   </header>
@@ -104,9 +105,9 @@
   width: 95%;
   list-style: none;
   display: flex;
-  gap: 2.04375rem; /* 18.3px -> 1.14375rem */
+  gap: 1.00375rem; /* 18.3px -> 1.14375rem */
   margin-left: 0.4rem;
-  margin-right: 0.625rem; /* 10px -> 0.625rem */
+  margin-right: 0.4rem; /* 10px -> 0.625rem */
   padding: 0;
   color: #140a66;
 }
@@ -126,7 +127,7 @@
   background-color: white;
   border-radius: 0.3125rem; /* 5px -> 0.3125rem */
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1); /* 2px -> 0.125rem, 4px -> 0.25rem */
-  padding: 0.625rem 4.6875rem; /* 10px -> 0.625rem, 75px -> 4.6875rem */
+  padding: 0.625rem 3.9575rem; /* 10px -> 0.625rem, 75px -> 4.6875rem */
 }
 
 .navbar-bottom a:hover {
@@ -197,9 +198,9 @@
   width: 95%;
   list-style: none;
   display: flex;
-  gap: 0.8375rem; /* 18.3px -> 1.14375rem */
+  gap: 0.6375rem; /* 18.3px -> 1.14375rem */
   margin: 0;
-  margin-left: 3rem; /* 10px -> 0.625rem */
+  margin-left: 2.5rem; /* 10px -> 0.625rem */
   padding: 0;
   color: #140a66;
 }
@@ -219,7 +220,7 @@
   background-color: white;
   border-radius: 0.3125rem; /* 5px -> 0.3125rem */
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1); /* 2px -> 0.125rem, 4px -> 0.25rem */
-  padding: 0.35rem 1.6875rem; /* 10px -> 0.625rem, 75px -> 4.6875rem */
+  padding: 0.35rem 1.2875rem; /* 10px -> 0.625rem, 75px -> 4.6875rem */
 }
 
 .navbar-top {
