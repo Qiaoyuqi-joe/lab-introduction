@@ -20,9 +20,10 @@
         <li><router-link to="/">主页</router-link></li>
         <li><router-link to="/research">研究内容</router-link></li>
         <li><router-link to="/people">人员构成</router-link></li>
+        <li><router-link to="/program">科研项目</router-link></li>
         <li><router-link to="/publication">论文发表</router-link></li>
         <li><router-link to="/news">新闻资讯</router-link></li>
-        <li><router-link to="/program">科研项目</router-link></li>
+       
       </ul>
     </nav>
   </header>
