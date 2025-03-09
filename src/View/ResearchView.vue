@@ -142,7 +142,7 @@ export default {
 }
 
 .image-section img {
-  max-width: 100%;
+  max-width: 90%;
   height: auto;
   border-radius: 0.5rem; /* 8px -> 0.5rem */
 }
@@ -153,7 +153,7 @@ export default {
 }
 
 .video-section video {
-  max-width: 100%;
+  max-width: 90%;
   height: auto;
   border-radius: 0.5rem; /* 8px -> 0.5rem */
   box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.1); /* 10px 30px -> 0.625rem 1.875rem */

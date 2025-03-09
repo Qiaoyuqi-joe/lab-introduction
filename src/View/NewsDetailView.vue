@@ -84,12 +84,16 @@ export default {
 }
 
 .news-detail img {
-  max-width: 100%; /* 保证图片宽度自适应 */
+  max-width: 80%; /* 保证图片宽度自适应 */
   height: auto; /* 自动调整高度，保持比例 */
+  display: block; /* 将video改为块级元素 */
+  margin: 0 auto; /* 水平居中 */
 }
 
 .news-detail video {
-  max-width: 100%; /* 保证视频宽度自适应 */
+  max-width: 80%; /* 保证视频宽度自适应 */
   height: auto; /* 自动调整高度，保持比例 */
+  display: block; /* 将video改为块级元素 */
+  margin: 0 auto; /* 水平居中 */
 }
 </style>

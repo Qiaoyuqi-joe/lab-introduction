@@ -26,7 +26,7 @@
 
     <p>
       联系邮箱:
-      <a href="hszhang@bupt.edu.cn">hszhang@bupt.edu.cn</a>
+      <a href="hszhang@bupt.edu.cn" target="_blank">hszhang@bupt.edu.cn</a>
     </p>
   </div>
 </template>

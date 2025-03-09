@@ -17,7 +17,7 @@
         <button class="search-button">Search</button>
       </div>
       <ul>
-        <li><router-link to="/">主页</router-link></li>
+        <li><router-link to="/">首页</router-link></li>
         <li><router-link to="/research">研究内容</router-link></li>
         <li><router-link to="/people">人员构成</router-link></li>
         <li><router-link to="/program">科研项目</router-link></li>
@@ -106,7 +106,7 @@
   width: 95%;
   list-style: none;
   display: flex;
-  gap: 1.00375rem; /* 18.3px -> 1.14375rem */
+  gap: 1.3rem; /* 18.3px -> 1.14375rem */
   margin-left: 0.4rem;
   margin-right: 0.4rem; /* 10px -> 0.625rem */
   padding: 0;
@@ -128,7 +128,7 @@
   background-color: white;
   border-radius: 0.3125rem; /* 5px -> 0.3125rem */
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1); /* 2px -> 0.125rem, 4px -> 0.25rem */
-  padding: 0.625rem 3.9575rem; /* 10px -> 0.625rem, 75px -> 4.6875rem */
+  padding: 0.625rem 3.8575rem; /* 10px -> 0.625rem, 75px -> 4.6875rem */
 }
 
 .navbar-bottom a:hover {

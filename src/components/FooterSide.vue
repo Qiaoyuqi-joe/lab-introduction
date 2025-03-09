@@ -4,19 +4,19 @@
       <div class="footer-links">
         <h3>友情链接：</h3>
         <ul>
-  <li><a href="https://www.bupt.edu.cn/">北京邮电大学主站</a></li>
-  <li><a href="https://www.icourse163.org/">中国大学MOOC</a></li>
-  <li><a href="https://sice.bupt.edu.cn/">信息与通信工程学院</a></li>
-  <li><a href="https://www.ieee.org/">IEEE首页</a></li>
-  <li><a href="https://www.xuetangx.com/">学堂在线</a></li>
-  <li><a href="https://arxiv.org/">arXiv</a></li>
+  <li><a href="https://www.bupt.edu.cn/" target="_blank">北京邮电大学主站</a></li>
+  <li><a href="https://www.icourse163.org/" target="_blank">中国大学MOOC</a></li>
+  <li><a href="https://sice.bupt.edu.cn/" target="_blank">信息与通信工程学院</a></li>
+  <li><a href="https://www.ieee.org/" target="_blank">IEEE首页</a></li>
+  <li><a href="https://www.xuetangx.com/" target="_blank">学堂在线</a></li>
+  <li><a href="https://arxiv.org/" target="_blank">arXiv</a></li>
 </ul>
 
       </div>
       <div class="footer-info">
         <h3>联系方式：</h3>
         <p>地址：北京市海淀区西土城路10号 <span class="postal-code">邮编：100876</span></p>
-        <p>邮箱：<a href="mailto:z-long@bupt.edu.cn">z-long@bupt.edu.cn</a></p>
+        <p>邮箱：<a href="mailto:z-long@bupt.edu.cn" target="_blank">z-long@bupt.edu.cn</a></p>
       </div>
     </div>
     <hr />
