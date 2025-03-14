@@ -16,7 +16,7 @@
       <div class="footer-info">
         <h3>联系方式：</h3>
         <p>地址：北京市海淀区西土城路10号 <span class="postal-code">邮编：100876</span></p>
-        <p>邮箱：<a href="mailto:z-long@bupt.edu.cn" target="_blank">z-long@bupt.edu.cn</a></p>
+        <p>邮箱：<a href="mailto:hszhang@bupt.edu.cn" target="_blank">hszhang@bupt.edu.cn</a></p>
       </div>
     </div>
     <hr />

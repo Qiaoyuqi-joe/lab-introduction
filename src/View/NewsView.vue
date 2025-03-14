@@ -26,18 +26,26 @@ export default {
     return {
       newsList: [
         {
-          title: "协作边缘计算网络中基于算力网络图的任务调度系统Demo",
-          date: "December 9, 2024",
+          title: "实验室成员李泱博士参加2023 ACM MOBICOM会议并进行现场演示",
+          date: "October 10, 2023",
           author: "zxlab",
-          description: "为了实现协作边缘计算网络中高效的任务调度，提出了基于算力网络图的任务调度方案",
+          description: "北京邮电大学泛网无线教育部重点实验室的李泱博士前往西班牙马德里参加2023年国际移动计算与网络大会",
           categories: ["Notifications", "Visitings"],
         },
         {
-          title: "实验室成员参加2024GLOBECOM会议并进行口头汇报",
+          title: "实验室成员李泱博士参加2024GLOBECOM会议并进行口头汇报",
           date: "December 8, 2024",
           author: "zxlab",
           description:
             "北京邮电大学泛网无线教育部重点实验室的李泱博士前往南非开普敦参加2024年全球通信会议",
+          categories: ["Notifications", "Visitings"],
+        },
+        {
+          title: "实验室团队参加2024年中国北京国际科技产业博览会并进行展演",
+          date: "July 13, 2024",
+          author: "zxlab",
+          description:
+            "北京邮电大学信息与通信工程学院 WSPN 实验室的张兴率团队首次公开展示 “轻量化通算一体边缘智能关键技术及应用”",
           categories: ["Notifications", "Visitings"],
         },
        

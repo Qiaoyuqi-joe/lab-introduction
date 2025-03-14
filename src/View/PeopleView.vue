@@ -1,13 +1,15 @@
 <template>
   <div class="people-content">
     <h1>导师</h1>
-    <div class="faculty-cards">
-      <div class="card" v-for="faculty in facultyList" :key="faculty.id">
-        <router-link
-          :to="{ name: 'PersonDetail', params: { id: faculty.id } }"
-          >{{ faculty.name }}</router-link
-        >
-      </div>
+    <div class="faculty-list">
+      <router-link
+        v-for="faculty in facultyList"
+        :key="faculty.id"
+        :to="{ name: 'PersonDetail', params: { id: faculty.id } }"
+        class="list-item"
+      >
+        {{ faculty.name }}
+      </router-link>
     </div>
 
     <h2>博士后</h2>
@@ -15,29 +17,28 @@
     <div class="timeline">
       <div class="timeline-item" v-for="phd in phdStudents" :key="phd.id">
         <div class="timeline-item-date">{{ phd.year }}</div>
-        <!-- 显示博士生的年份 -->
-        <router-link :to="{ name: 'PersonDetail', params: { id: phd.id } }">{{
-          phd.name
-        }}</router-link>
+        <router-link :to="{ name: 'PersonDetail', params: { id: phd.id } }">
+          {{ phd.name }}
+        </router-link>
       </div>
     </div>
 
     <h2>在读学生-硕士生</h2>
-<div class="timeline">
-  <div class="year-group" v-for="(group, year) in groupedMasterStudents" :key="year">
-    <div class="timeline-item-date">{{ year }}</div>
-    <div class="student-list">
-      <router-link
-        v-for="student in group"
-        :key="student.id"
-        :to="{ name: 'PersonDetail', params: { id: student.id } }"
-        class="timeline-item"
-      >
-        {{ student.name }}
-      </router-link>
+    <div class="timeline">
+      <div class="year-group" v-for="(group, year) in groupedMasterStudents" :key="year">
+        <div class="timeline-item-date">{{ year }}</div>
+        <div class="student-list">
+          <router-link
+            v-for="student in group"
+            :key="student.id"
+            :to="{ name: 'PersonDetail', params: { id: student.id } }"
+            class="list-item"
+          >
+            {{ student.name }}
+          </router-link>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
     <h2>毕业学生-博士生</h2>
     <h2>毕业学生-硕士生</h2>
@@ -67,9 +68,8 @@ export default {
       ],
     };
   },
-  computed:{
-  // 按年份分组硕士生
-  groupedMasterStudents() {
+  computed: {
+    groupedMasterStudents() {
       return this.masterStudents.reduce((acc, student) => {
         const year = student.year || "未知年份";
         if (!acc[year]) acc[year] = [];
@@ -80,87 +80,51 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 .people-content {
   padding: 1.25rem;
 }
+
 .people-content h1,
 .people-content h2 {
   font-size: 1.5rem;
   font-weight: bold;
-  margin-top: 3.25rem;
-  margin-bottom: 1.5rem;
+  margin-top: 2.25rem;
   padding-bottom: 0.3rem;
   display: inline-block;
-}
-/* 增大区块间距 */
-.faculty-cards,
-.timeline {
-  margin-bottom: 4rem;
+  
 }
 
-/* 占位文本样式 */
-.empty-placeholder {
-  font-size: 1rem;
-  color: #666;
-  text-align: center;
+.faculty-list
+ {
+  margin-bottom: 2rem;
+  padding-left:1.5rem;
+}
+
+.list-item {
+  display: block;
   margin: 1rem 0;
-}
-.faculty-cards {
-  display: flex;
-  gap: 3.2rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.card {
-  background-color: white;
-  border: 2px solid #4a3f98;
-  border-radius: 1rem;
-  padding: 1rem;
-  width: 200px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(95, 95, 95, 0.3);
-  transition: transform 0.3s ease-in-out;
-}
-
-.card:hover {
-  transform: translateY(-5px);
 }
 
 .timeline {
   position: relative;
   width: 100%;
- 
   padding-left: 1.5rem;
 }
-/* 年份分组容器 */
+
 .year-group {
   margin: 1.5rem 0;
   position: relative;
 }
 
 .student-list {
-  display: flex;
-  flex-wrap: wrap;
-  column-gap:3rem;
-  
-  
+  display: block;
 }
+
 .timeline-item {
   margin: 1rem 0;
   position: relative;
-  text-align: center;
-  background-color: #ffffff;
-  border-radius: 0.5rem;
-  width:12rem;
-  padding: 0.5rem 1rem;
-  box-shadow: 0 4px 8px rgba(95, 95, 95, 0.2);
-  transition: transform 0.3s ease-in-out;
-}
-
-.timeline-item:hover {
-  transform: scale(1.05);
 }
 
 .timeline-item-date {
@@ -170,11 +134,9 @@ export default {
   top: -12px;
   left: -2rem;
   background-color: #fff;
-  padding: 0 5px;
+  padding: 3 5px;
   border-radius: 5px;
 }
-
-
 
 .people-content a {
   color: #000000;

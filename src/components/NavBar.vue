@@ -199,7 +199,7 @@
   width: 95%;
   list-style: none;
   display: flex;
-  gap: 0.6375rem; /* 18.3px -> 1.14375rem */
+  gap: 0.4375rem; /* 18.3px -> 1.14375rem */
   margin: 0;
   margin-left: 2.5rem; /* 10px -> 0.625rem */
   padding: 0;

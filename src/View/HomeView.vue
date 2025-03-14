@@ -1,32 +1,43 @@
 <template>
   <div class="main-content">
-    <h1>欢迎！</h1>
+    <h1>北京邮电大学信通院WSPN实验室欢迎您！</h1>
     <p style="text-indent: 2em;">
-      <strong>
-        北邮WSPN实验室是泛网无线通信教育部重点实验室的重要组成，本研究组主要面向无线网络能力提升和移动互联网业务承载优化的重大需求，以提升无线网络效能为科学目标，主要研究方向：算力网络与移动边缘网络、星地融合信息网络、多模态信息融合处理等。
-      </strong>
+      欢迎访问无线边缘智能与星地融合信息网络研究组！
     </p>
     <p style="text-indent: 2em;">
-      <strong>
-        主要研究方向：算力网络与移动边缘网络、星地融合信息网络、社区计算与大数据等
-      </strong>
+      本实验室紧密围绕新一代无线网络能力提升与移动互联网业务优化的国家重大战略需求，以“提升网络效能、驱动智能变革”为核心使命，致力于突破6G通信、算网融合、星地协同等前沿技术领域的科学难题。
     </p>
 
     <div class="lab-photo">
       <img src="../assets/images/GroupPhoto.jpg" alt="Lab Group Photo" />
     </div>
 
-    <p>
-      <strong>如有更多问题请点击
-        <a href="#">Q&A</a> 获得更多咨询！</strong>
+    <p style="text-indent: 2em;">
+      实验室研究方向聚焦未来信息网络的核心使能技术，涵盖<strong>算力网络与移动边缘智能、6G算网融合、星地融合信息网络以及LLM多模态信息融合处理</strong>。实验室始终秉持“前沿创新、学科交叉、产业驱动”的理念，在异构资源智能编排、星地算力协同、多模态认知推理等方向取得了一系列原创成果，助力国家新型信息基础设施建设。
     </p>
+
+    <p style="text-indent: 2em;">
+      团队汇聚了一批在通信、计算与人工智能领域深耕的青年学者与优秀学生，依托国家级科研平台和产学研合作网络，持续推动理论创新与技术落地。
+    </p>
+
+    <p style="text-indent: 2em;">
+      我们诚邀国内外同行、青年学子及产业伙伴携手，在智能信息时代共绘技术蓝图，赋能智能互联未来！
+    </p>
+
+    <p style="text-indent: 2em;">
+      <strong>
+        探索创新边界，共创智慧网络。期待与您同行！
+      </strong>
+    </p>
+    
+    
 
     <h2>联系我们</h2>
     <p>实验室位置：北京邮电大学科研楼630，鸿通楼201</p>
-
     <p>
-      联系邮箱:
-      <a href="hszhang@bupt.edu.cn" target="_blank">hszhang@bupt.edu.cn</a>
+      联系人:张老师
+      <!-- eslint-disable-next-line vue/no-parsing-error -->
+      <a href="mailto:hszhang@bupt.edu.cn" target="_blank">hszhang@bupt.edu.cn</a>
     </p>
   </div>
 </template>
@@ -71,7 +82,8 @@ export default {
 .lab-photo img {
   max-width: 100%;
   height: 25rem; /* 400px -> 25rem */
-  border-radius: 0.5rem; /* 8px -> 0.5rem */
+  border-radius: 0.5rem; /* 图片圆角 */
+  box-shadow:  0 0.625rem 1.875rem rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
 }
 
 .main-content h2 {

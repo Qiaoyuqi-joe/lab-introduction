@@ -192,7 +192,8 @@ button:hover {
 .image-section img {
   max-width: 80%;
   height: auto;
-  border-radius: 0.5rem; /* 8px -> 0.5rem */
+  border-radius: 0.5rem; /* 图片圆角 */
+  box-shadow:  0 0.625rem 1.875rem rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
 }
 
 .video-section {
